@@ -1,0 +1,15 @@
+D:\fontes\SG\sgapi\sgapi\SG.Repository\bin\Release\netcoreapp3.1\SG.Repository.deps.json
+D:\fontes\SG\sgapi\sgapi\SG.Repository\bin\Release\netcoreapp3.1\SG.Repository.runtimeconfig.json
+D:\fontes\SG\sgapi\sgapi\SG.Repository\bin\Release\netcoreapp3.1\SG.Repository.runtimeconfig.dev.json
+D:\fontes\SG\sgapi\sgapi\SG.Repository\bin\Release\netcoreapp3.1\SG.Repository.dll
+D:\fontes\SG\sgapi\sgapi\SG.Repository\bin\Release\netcoreapp3.1\SG.Repository.pdb
+D:\fontes\SG\sgapi\sgapi\SG.Repository\bin\Release\netcoreapp3.1\SG.Domain.dll
+D:\fontes\SG\sgapi\sgapi\SG.Repository\bin\Release\netcoreapp3.1\SG.Domain.pdb
+D:\fontes\SG\sgapi\sgapi\SG.Repository\obj\Release\netcoreapp3.1\SG.Repository.csprojAssemblyReference.cache
+D:\fontes\SG\sgapi\sgapi\SG.Repository\obj\Release\netcoreapp3.1\SG.Repository.AssemblyInfoInputs.cache
+D:\fontes\SG\sgapi\sgapi\SG.Repository\obj\Release\netcoreapp3.1\SG.Repository.AssemblyInfo.cs
+D:\fontes\SG\sgapi\sgapi\SG.Repository\obj\Release\netcoreapp3.1\SG.Repository.csproj.CoreCompileInputs.cache
+D:\fontes\SG\sgapi\sgapi\SG.Repository\obj\Release\netcoreapp3.1\SG.Repository.csproj.CopyComplete
+D:\fontes\SG\sgapi\sgapi\SG.Repository\obj\Release\netcoreapp3.1\SG.Repository.dll
+D:\fontes\SG\sgapi\sgapi\SG.Repository\obj\Release\netcoreapp3.1\SG.Repository.pdb
+D:\fontes\SG\sgapi\sgapi\SG.Repository\obj\Release\netcoreapp3.1\SG.Repository.genruntimeconfig.cache

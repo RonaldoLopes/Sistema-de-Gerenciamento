@@ -1,0 +1,83 @@
+<div class="container">
+    <div class="container-fluid">
+        <mat-label><h4>Contato cliente - Consulta</h4></mat-label>
+                    <mat-divider></mat-divider>
+
+                    <div fxLayout="row" fxFlexAlign="space-between center" fxLayoutGap="20px">
+                
+                        <div fxFlex="100">
+        
+                            <div class="table-container">
+        
+                                <mat-form-field>
+                                    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filtrar Dados">
+                                </mat-form-field>
+        
+                                <table mat-table [dataSource]="dataSource" matSort>
+        
+                                    <!-- Position Column -->
+                                    <ng-container matColumnDef="id">
+                                        <th mat-header-cell *matHeaderCellDef> Id </th>
+                                        <td mat-cell *matCellDef="let ct"> {{ct.id}} </td>
+                                    </ng-container>
+        
+                                    <!-- Name Column -->
+                                    <ng-container matColumnDef="nome">
+                                        <th mat-header-cell *matHeaderCellDef> Nome </th>
+                                        <td mat-cell *matCellDef="let ct"> {{ct.nome}} </td>
+                                    </ng-container>
+        
+                                    <!-- Weight Column -->
+                                    <ng-container matColumnDef="emailPrinc">
+                                        <th mat-header-cell *matHeaderCellDef> Email </th>
+                                        <td mat-cell *matCellDef="let ct"> {{ct.emailPrinc}} </td>
+                                    </ng-container>
+        
+                                    <!-- Symbol Column -->
+                                    <ng-container matColumnDef="emailSec">
+                                        <th mat-header-cell *matHeaderCellDef> Email Sec. </th>
+                                        <td mat-cell *matCellDef="let ct"> {{ct.emailSec}} </td>
+                                    </ng-container>
+        
+                                    <ng-container matColumnDef="fonePrinc">
+                                        <th mat-header-cell *matHeaderCellDef> Fone </th>
+                                        <td mat-cell *matCellDef="let ct"> {{ct.fonePrinc}} </td>
+                                    </ng-container>
+        
+                                    <ng-container matColumnDef="foneSecun">
+                                        <th mat-header-cell *matHeaderCellDef> foneSecun </th>
+                                        <td mat-cell *matCellDef="let ct"> {{ct.foneSecun}} </td>
+                                    </ng-container>
+        
+                                    <ng-container matColumnDef="clienteId">
+                                        <th mat-header-cell *matHeaderCellDef> Cliente Id </th>
+                                        <td mat-cell *matCellDef="let ct"> {{ct.clienteId}} </td>
+                                    </ng-container>
+        
+                                    <ng-container matColumnDef="clienteNome">
+                                        <th mat-header-cell *matHeaderCellDef> Nome Cliente </th>
+                                        <td mat-cell *matCellDef="let ct"> {{ct.clientes.clientes}} </td>
+                                    </ng-container>
+                                    
+        
+                                    <ng-container matColumnDef="Opcoes">
+                                        <th mat-header-cell *matHeaderCellDef mat-sort-header>Opções</th>
+                                        <td mat-cell *matCellDef="let ct">
+                                            <button mat-button color="primary" [routerLink]="['/contatosc', ct.id, 'edit']" tooltip="Editar"><mat-icon>edit</mat-icon></button>
+                                            <button mat-button color="warn" (click)="deleteConfirm(ct)" tooltip="Excluir"><mat-icon>delete_sweep</mat-icon></button>
+                                        </td>
+                                    </ng-container>
+        
+                                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        
+                                </table>
+                                <mat-paginator [pageSizeOptions]="[5, 10, 20]"></mat-paginator>
+        
+                            </div>
+        
+                        </div>
+        
+                    </div>
+    </div>
+</div>

@@ -1,0 +1,58 @@
+<div class="container">
+    <div class="container-fluid">
+
+        <form >
+
+            <h4>Escolha o dado abaixo</h4>
+            <mat-divider></mat-divider>
+
+            <div fxLayout="row" fxFlexAlign="space-between center" fxLayoutGap="20px">
+                <div fxFlex="100">
+
+                    <div class="mat-elevation-z8">
+
+                        <mat-form-field>
+                            <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filtrar Dados">
+                        </mat-form-field>
+
+                        <table mat-table [dataSource]="dataSource" matSort>
+
+                            <!-- Position Column -->
+                            <ng-container matColumnDef="id">
+                                <th mat-header-cell *matHeaderCellDef> ID </th>
+                                <td mat-cell *matCellDef="let pj"> {{pj.id}} </td>
+                            </ng-container>
+
+                            <!-- Name Column -->
+                            <ng-container matColumnDef="projeto">
+                                <th mat-header-cell *matHeaderCellDef> Projeto </th>
+                                <td mat-cell *matCellDef="let pj"> {{pj.codProjeto}} </td>
+                            </ng-container>
+
+                            <ng-container matColumnDef="dataInicio">
+                                <th mat-header-cell *matHeaderCellDef> Data Ini. </th>
+                                <td mat-cell *matCellDef="let pj"> {{pj.dataInicio | date: 'dd/MM/yyyy'}} </td>
+                            </ng-container>
+
+                            <ng-container matColumnDef="Opcoes">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header>Opções</th>
+                                <td mat-cell *matCellDef="let pj">
+                                  <button mat-button color="primary"  tooltip="Alterar" (click)="close(pj)"><mat-icon>assignment_return</mat-icon></button>&nbsp;
+                                </td>
+                            </ng-container>
+
+                            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+                        </table>
+                        <mat-paginator [pageSizeOptions]="[5, 10, 20]"></mat-paginator>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </form>
+
+    </div>
+</div>

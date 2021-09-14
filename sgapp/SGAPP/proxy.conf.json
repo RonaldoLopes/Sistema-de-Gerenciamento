@@ -1,0 +1,10 @@
+{
+    "viacep": {
+        "target" : "//viacep.com.br/ws",
+        "secure": false,
+        "logLevel": "debug",
+        "pathRewrite": {
+            "^viacep" : ""
+        }
+    }
+}

@@ -1,0 +1,142 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20200520113743_initial.cs" />
+    <Compile Remove="Migrations\20200520113743_initial.Designer.cs" />
+    <Compile Remove="Migrations\20200521200141_teste2.cs" />
+    <Compile Remove="Migrations\20200521200141_teste2.Designer.cs" />
+    <Compile Remove="Migrations\20200605181326_initial.cs" />
+    <Compile Remove="Migrations\20200605181326_initial.Designer.cs" />
+    <Compile Remove="Migrations\20200609172501_teste.cs" />
+    <Compile Remove="Migrations\20200609172501_teste.Designer.cs" />
+    <Compile Remove="Migrations\20200609173100_initial.cs" />
+    <Compile Remove="Migrations\20200609173100_initial.Designer.cs" />
+    <Compile Remove="Migrations\20200609173403_initial.cs" />
+    <Compile Remove="Migrations\20200609173403_initial.Designer.cs" />
+    <Compile Remove="Migrations\20200615165012_ajustes.cs" />
+    <Compile Remove="Migrations\20200615165012_ajustes.Designer.cs" />
+    <Compile Remove="Migrations\20200615165214_ajustesProjeto.cs" />
+    <Compile Remove="Migrations\20200615165214_ajustesProjeto.Designer.cs" />
+    <Compile Remove="Migrations\20200615171215_ert.cs" />
+    <Compile Remove="Migrations\20200615171215_ert.Designer.cs" />
+    <Compile Remove="Migrations\20200615181229_denovo.cs" />
+    <Compile Remove="Migrations\20200615181229_denovo.Designer.cs" />
+    <Compile Remove="Migrations\20200615181405_denovod.cs" />
+    <Compile Remove="Migrations\20200615181405_denovod.Designer.cs" />
+    <Compile Remove="Migrations\20200615181612_denovodk.cs" />
+    <Compile Remove="Migrations\20200615181612_denovodk.Designer.cs" />
+    <Compile Remove="Migrations\20200615191534_denovodkd.cs" />
+    <Compile Remove="Migrations\20200615191534_denovodkd.Designer.cs" />
+    <Compile Remove="Migrations\20200615194826_initial.cs" />
+    <Compile Remove="Migrations\20200615194826_initial.Designer.cs" />
+    <Compile Remove="Migrations\20200615195048_initial2.cs" />
+    <Compile Remove="Migrations\20200615195048_initial2.Designer.cs" />
+    <Compile Remove="Migrations\20200616133004_correcoes.cs" />
+    <Compile Remove="Migrations\20200616133004_correcoes.Designer.cs" />
+    <Compile Remove="Migrations\20200616133233_correcoess.cs" />
+    <Compile Remove="Migrations\20200616133233_correcoess.Designer.cs" />
+    <Compile Remove="Migrations\20200616141420_correcoessf.cs" />
+    <Compile Remove="Migrations\20200616141420_correcoessf.Designer.cs" />
+    <Compile Remove="Migrations\20200616141454_correcoessfs.cs" />
+    <Compile Remove="Migrations\20200616141454_correcoessfs.Designer.cs" />
+    <Compile Remove="Migrations\20200616195807_correcoessfss.cs" />
+    <Compile Remove="Migrations\20200616195807_correcoessfss.Designer.cs" />
+    <Compile Remove="Migrations\20200617114920_camposponto.cs" />
+    <Compile Remove="Migrations\20200617114920_camposponto.Designer.cs" />
+    <Compile Remove="Migrations\20200617145613_dadosflag.cs" />
+    <Compile Remove="Migrations\20200617145613_dadosflag.Designer.cs" />
+    <Compile Remove="Migrations\20200617145920_dadosflags.cs" />
+    <Compile Remove="Migrations\20200617145920_dadosflags.Designer.cs" />
+    <Compile Remove="Migrations\20200617164628_dadosflagks.cs" />
+    <Compile Remove="Migrations\20200617164628_dadosflagks.Designer.cs" />
+    <Compile Remove="Migrations\20200617171155_initial.cs" />
+    <Compile Remove="Migrations\20200617171155_initial.Designer.cs" />
+    <Compile Remove="Migrations\20200617171311_initials.cs" />
+    <Compile Remove="Migrations\20200617171311_initials.Designer.cs" />
+    <Compile Remove="Migrations\20200619183555_ajustes.cs" />
+    <Compile Remove="Migrations\20200619183555_ajustes.Designer.cs" />
+    <Compile Remove="Migrations\20200622114138_j.cs" />
+    <Compile Remove="Migrations\20200622114138_j.Designer.cs" />
+    <Compile Remove="Migrations\20200622192348_teste_user.cs" />
+    <Compile Remove="Migrations\20200622192348_teste_user.Designer.cs" />
+    <Compile Remove="Migrations\20200622192612_teste.cs" />
+    <Compile Remove="Migrations\20200622192612_teste.Designer.cs" />
+    <Compile Remove="Migrations\20200622193938_initial.cs" />
+    <Compile Remove="Migrations\20200622193938_initial.Designer.cs" />
+    <Compile Remove="Migrations\20200622194506_reste.cs" />
+    <Compile Remove="Migrations\20200622194506_reste.Designer.cs" />
+    <Compile Remove="Migrations\20200622194753_teste.cs" />
+    <Compile Remove="Migrations\20200622194753_teste.Designer.cs" />
+    <Compile Remove="Migrations\20200622195412_reste.cs" />
+    <Compile Remove="Migrations\20200622195412_reste.Designer.cs" />
+    <Compile Remove="Migrations\20200622195538_reste.cs" />
+    <Compile Remove="Migrations\20200622195538_reste.Designer.cs" />
+    <Compile Remove="Migrations\20200622202015_teste.cs" />
+    <Compile Remove="Migrations\20200622202015_teste.Designer.cs" />
+    <Compile Remove="Migrations\20200623171957_we.cs" />
+    <Compile Remove="Migrations\20200623171957_we.Designer.cs" />
+    <Compile Remove="Migrations\20200624123624_w.cs" />
+    <Compile Remove="Migrations\20200624123624_w.Designer.cs" />
+    <Compile Remove="Migrations\20200624140415_qwert.cs" />
+    <Compile Remove="Migrations\20200624140415_qwert.Designer.cs" />
+    <Compile Remove="Migrations\20200624141649_qwes.cs" />
+    <Compile Remove="Migrations\20200624141649_qwes.Designer.cs" />
+    <Compile Remove="Migrations\20200624143211_qwesd.cs" />
+    <Compile Remove="Migrations\20200624143211_qwesd.Designer.cs" />
+    <Compile Remove="Migrations\20200624174449_qwesdd.cs" />
+    <Compile Remove="Migrations\20200624174449_qwesdd.Designer.cs" />
+    <Compile Remove="Migrations\20200626194848_wert.cs" />
+    <Compile Remove="Migrations\20200626194848_wert.Designer.cs" />
+    <Compile Remove="Migrations\20200629110106_qwed.cs" />
+    <Compile Remove="Migrations\20200629110106_qwed.Designer.cs" />
+    <Compile Remove="Migrations\20200629171640_initial.cs" />
+    <Compile Remove="Migrations\20200629171640_initial.Designer.cs" />
+    <Compile Remove="Migrations\20200629172443_initial.cs" />
+    <Compile Remove="Migrations\20200629172443_initial.Designer.cs" />
+    <Compile Remove="Migrations\20200629173158_initial.cs" />
+    <Compile Remove="Migrations\20200629173158_initial.Designer.cs" />
+    <Compile Remove="Migrations\20200630141727_teste.cs" />
+    <Compile Remove="Migrations\20200630141727_teste.Designer.cs" />
+    <Compile Remove="Migrations\20200630141825_teste.cs" />
+    <Compile Remove="Migrations\20200630141825_teste.Designer.cs" />
+    <Compile Remove="Migrations\20200630170203_testee.cs" />
+    <Compile Remove="Migrations\20200630170203_testee.Designer.cs" />
+    <Compile Remove="Migrations\20200630170318_testeeh.cs" />
+    <Compile Remove="Migrations\20200630170318_testeeh.Designer.cs" />
+    <Compile Remove="Migrations\20200630171434_testeehc.cs" />
+    <Compile Remove="Migrations\20200630171434_testeehc.Designer.cs" />
+    <Compile Remove="Migrations\20200630180220_testeehcs.cs" />
+    <Compile Remove="Migrations\20200630180220_testeehcs.Designer.cs" />
+    <Compile Remove="Migrations\20200701173621_eed.cs" />
+    <Compile Remove="Migrations\20200701173621_eed.Designer.cs" />
+    <Compile Remove="Migrations\20200703182647_initial.cs" />
+    <Compile Remove="Migrations\20200703182647_initial.Designer.cs" />
+    <Compile Remove="Migrations\20200706124149_initial.cs" />
+    <Compile Remove="Migrations\20200706124149_initial.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="3.1.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="3.1.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="3.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SG.Domain\SG.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

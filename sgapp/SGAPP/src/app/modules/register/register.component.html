@@ -1,0 +1,206 @@
+<!--<p>Form Value: {{registerForm.value | json}}</p>
+    <p>Form Status: {{registerForm.status | json}}</p>-->
+    <div class="container">
+        <div class="container-fluid">
+
+            <form [formGroup]="registerForm">
+
+                <mat-label><h4>Dados</h4></mat-label>
+                <mat-divider></mat-divider>
+                <br>
+
+                <div fxLayout="row" fxFlexAlign="space-between center" fxLayoutGap="20px">
+
+                    <div fxFlex="20" class="form-group ">
+                        <mat-form-field class="perc">
+                            <mat-label>Usuário</mat-label>
+                            <input matInput placeholder="Usuário" formControlName="userName">
+
+                            <mat-error *ngIf="registerForm.get('userName').hasError('required')">
+                                Campo <strong>Obrigatório</strong>
+                            </mat-error>
+
+                        </mat-form-field>
+                    </div>
+
+                    <div fxFlex="30" class="form-group ">
+                        <mat-form-field class="perc">
+                            <mat-label>Nome Completo</mat-label>
+                            <input matInput placeholder="Nome completo" formControlName="fullName">
+
+                            <mat-error *ngIf="registerForm.get('fullName').hasError('required')">
+                                Campo <strong>Obrigatório</strong>
+                            </mat-error>
+                          </mat-form-field>
+                    </div>
+
+                    <div fxFlex="30" class="form-group ">
+                        <mat-form-field class="perc">
+                            <mat-label>Email</mat-label>
+                            <input matInput placeholder="Email"
+                                formControlName="email">
+
+                            <mat-error *ngIf="registerForm.get('email').hasError('required')">
+                                Campo <strong>Obrigatório</strong>
+                            </mat-error>
+                          </mat-form-field>
+                    </div>
+
+                </div>
+
+                <div fxLayout="row" fxFlexAlign="space-between center" fxLayoutGap="20px">
+
+
+                    <div fxFlex="30" class="form-group ">
+                        <mat-form-field class="perc">
+                            <mat-label>Senha</mat-label>
+                            <input [type]="hide ? 'password' : 'text'" formControlName="password" required
+                                 matInput placeholder="Senha"
+                                 [ngClass]="{'is-invalid': registerForm.get('password').errors && registerForm.get('password').touched}">
+                                  <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                                  <mat-error *ngIf="registerForm.get('password').hasError('required')">
+                                    Campo <strong>Obrigatório</strong>
+                                  </mat-error>
+                                  <mat-error *ngIf="registerForm.get('password').hasError('minlength') && registerForm.get('password').touched" class="invalid-feedback">
+                                    Mínimo de <strong>6 caracteres</strong>
+                                  </mat-error>
+                          </mat-form-field>
+                    </div>
+
+                    <div fxFlex="30" class="form-group ">
+                        <mat-form-field class="perc">
+                            <mat-label>Conf. Senha</mat-label>
+                            <input [type]="hideConf ? 'password' : 'text'" formControlName="confirmPassword" required
+                                 matInput placeholder="Senha"
+                                 [ngClass]="{'is-invalid': registerForm.get('confirmPassword').errors && registerForm.get('confirmPassword').touched}"
+                                 (focusout)="comparePass()">
+                                  <mat-icon matSuffix (click)="hideConf = !hideConf">{{hideConf ? 'visibility_off' : 'visibility'}}</mat-icon>
+                                  <mat-error *ngIf="registerForm.get('confirmPassword').hasError('required')">
+                                    Campo <strong>Obrigatório</strong>
+                                  </mat-error>
+                                  <mat-error *ngIf="registerForm.get('confirmPassword').hasError('minlength') && registerForm.get('confirmPassword').touched" class="invalid-feedback">
+                                    Mínimo de <strong>6 caracteres</strong>
+                                  </mat-error>
+                          </mat-form-field>
+                    </div>
+
+                    <div fxFlex="30" class="form-group ">
+                        <mat-form-field class="perc">
+                            <mat-label>Perfil</mat-label>
+                            <mat-select formControlName="role">
+                                <mat-option value="Admin">Admin</mat-option>
+                                <mat-option value="Gestor">Gestor</mat-option>
+                                <mat-option value="RH">RH</mat-option>
+                                <mat-option value="RUser">sg</mat-option>
+                                <mat-option value="Cliente">Cliente</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+
+                </div>
+
+                <div fxLayout="row" fxFlexAlign="space-between center" fxLayoutGap="20px">
+                    <div fxFlex="30" class="form-group ">
+                        <mat-form-field class="perc">
+                            <mat-label>Função</mat-label>
+                            <input matInput placeholder="Função" formControlName="funcao">
+                          </mat-form-field>
+                    </div>
+
+                    <div fxFlex="30" class="form-group ">
+                        <mat-form-field class="perc">
+                            <mat-label>Setor</mat-label>
+                            <input matInput placeholder="Setor" formControlName="setor">
+                          </mat-form-field>
+                    </div>
+                </div>
+
+                <div fxLayout="row" fxFlexAlign="space-between center" fxLayoutGap="2px">
+                    <button mat-button color="primary" (click)="salvarAlteracoes()"><mat-icon>save</mat-icon>Salvar</button>
+                    <button mat-button color="accent"><mat-icon>undo</mat-icon>Cancelar</button>
+                </div>
+
+                <br>
+                <mat-divider></mat-divider>
+                <mat-label><h4>Visualização/Consulta</h4></mat-label>
+                <div fxLayout="row" fxFlexAlign="space-between center" fxLayoutGap="20px">
+
+                    <div fxFlex="100">
+
+                        <div class="mat-elevation-z8">
+
+                            <mat-form-field>
+                                <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filtrar Dados">
+                            </mat-form-field>
+
+                            <table mat-table [dataSource]="dataSource" matSort>
+
+                                <!-- Position Column -->
+                                <ng-container matColumnDef="id">
+                                    <th mat-header-cell *matHeaderCellDef> Id </th>
+                                    <td mat-cell *matCellDef="let users"> {{users.user.id}} </td>
+                                </ng-container>
+
+                                <!-- Name Column -->
+                                <ng-container matColumnDef="userName">
+                                    <th mat-header-cell *matHeaderCellDef> Nome de usuário </th>
+                                    <td mat-cell *matCellDef="let users"> {{users.user.userName}} </td>
+                                </ng-container>
+
+                                <!-- Weight Column -->
+                                <ng-container matColumnDef="fullName">
+                                    <th mat-header-cell *matHeaderCellDef> Nome Completo </th>
+                                    <td mat-cell *matCellDef="let users"> {{users.user.fullName}} </td>
+                                </ng-container>
+
+                                <!-- Symbol Column -->
+                                <ng-container matColumnDef="email">
+                                    <th mat-header-cell *matHeaderCellDef> Email </th>
+                                    <td mat-cell *matCellDef="let users"> {{users.user.email}} </td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="roleId">
+                                    <th mat-header-cell *matHeaderCellDef mat-sort-header>roleId</th>
+                                    <td mat-cell *matCellDef="let users"> {{users.role.id}} </td>
+                                  </ng-container>
+
+                                !-- Symbol Column -->
+                                <ng-container matColumnDef="role">
+                                    <th mat-header-cell *matHeaderCellDef> Perfil </th>
+                                    <td mat-cell *matCellDef="let users"> {{users.role.name}} </td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="funcao">
+                                    <th mat-header-cell *matHeaderCellDef> Função </th>
+                                    <td mat-cell *matCellDef="let users"> {{users.user.funcao}} </td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="setor">
+                                    <th mat-header-cell *matHeaderCellDef> Setor </th>
+                                    <td mat-cell *matCellDef="let users"> {{users.user.setor}} </td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="Opcoes">
+                                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Opções</th>
+                                    <td mat-cell *matCellDef="let users">
+                                      <button mat-button color="primary" (click)="editar(users)"tooltip="Alterar"><mat-icon>create</mat-icon></button>&nbsp;
+                                      <button mat-button color="warn" tooltip="Excluir"><mat-icon>delete_sweep</mat-icon></button>
+                                    </td>
+                                </ng-container>
+
+                                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+                            </table>
+                            <mat-paginator [pageSizeOptions]="[3, 10, 20]"></mat-paginator>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </form>
+
+        </div>
+    </div>

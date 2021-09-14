@@ -1,0 +1,132 @@
+<mat-nav-list>
+    <div class="profile-card">
+        <div class="header">
+            <h3>Bem vindo {{nameUser}}</h3>
+        </div>
+        <!--<img src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Soufiane FADIL">-->
+    </div>
+
+    <mat-divider></mat-divider>
+
+    <h2 matSubheader> Páginas </h2>
+    <a mat-list-item routerLinkActive="list-item-active" (click)="reloadData()" routerLink="/"><mat-icon>dashboard</mat-icon>Dashboard</a>
+
+    <mat-accordion>
+
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title><mat-icon>location_city</mat-icon>
+              Clientes
+            </mat-panel-title>
+            <mat-panel-description>
+              Dados e contato dos clientes
+            </mat-panel-description>
+          </mat-expansion-panel-header>  
+          
+          <a mat-list-item routerLinkActive="list-item-active" routerLink="/clientes"><mat-icon>add</mat-icon>Clientes</a>   
+
+          <mat-expansion-panel>
+
+            <mat-expansion-panel-header class="sub">
+
+                <mat-panel-title ><mat-icon>person</mat-icon>
+                  Contato
+                </mat-panel-title>                
+                
+            </mat-expansion-panel-header>
+            <a mat-list-item routerLinkActive="list-item-active" routerLink="/contatosc"><mat-icon>add</mat-icon>Cadastro</a>
+            <a mat-list-item routerLinkActive="list-item-active" routerLink="/contatosv"><mat-icon>search</mat-icon>Consulta</a>
+          </mat-expansion-panel>
+
+        </mat-expansion-panel>
+
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title><mat-icon>work</mat-icon>
+              Projetos
+            </mat-panel-title>
+            <mat-panel-description>
+              Dados de projetos
+            </mat-panel-description>
+          </mat-expansion-panel-header>  
+          
+          <a mat-list-item routerLinkActive="list-item-active" routerLink="/projetosc"><mat-icon>add</mat-icon>Cadastro</a>
+          <a mat-list-item routerLinkActive="list-item-active" routerLink="/projetosv"><mat-icon>search</mat-icon>Consulta</a>
+        </mat-expansion-panel>
+        
+        <mat-expansion-panel>
+
+          <mat-expansion-panel-header>
+            <mat-panel-title><mat-icon>text_snippet</mat-icon>
+              Lançamentos
+            </mat-panel-title>
+            <mat-panel-description>
+              Lançamento de dados
+            </mat-panel-description>
+          </mat-expansion-panel-header>  
+          
+
+          <mat-expansion-panel>
+
+            <mat-expansion-panel-header class="sub">
+
+                <mat-panel-title ><mat-icon>topic</mat-icon>
+                  Dados do dia
+                </mat-panel-title>                
+                
+            </mat-expansion-panel-header>
+            <a mat-list-item routerLinkActive="list-item-active" routerLink="/dadosdiac"><mat-icon>add</mat-icon>Cadastro</a>
+            <a mat-list-item routerLinkActive="list-item-active" routerLink="/dadosdiav"><mat-icon>search</mat-icon>Consulta</a>
+          </mat-expansion-panel>
+
+          <mat-expansion-panel>
+
+            <mat-expansion-panel-header class="sub">
+
+                <mat-panel-title ><mat-icon>av_timer</mat-icon>
+                  Ponto externo
+                </mat-panel-title>                
+                
+            </mat-expansion-panel-header>
+            <a mat-list-item routerLinkActive="list-item-active" routerLink="/pontoc"><mat-icon>add</mat-icon>Cadastro</a>
+            <a mat-list-item routerLinkActive="list-item-active" routerLink="/pontov"><mat-icon>search</mat-icon>Consulta</a>
+          </mat-expansion-panel>
+
+
+          <mat-expansion-panel>
+
+            <mat-expansion-panel-header>
+
+                <mat-panel-title ><mat-icon>more_time</mat-icon>
+                  Caderno horas
+                </mat-panel-title>                
+                
+            </mat-expansion-panel-header>
+            <a mat-list-item routerLinkActive="list-item-active" routerLink="/cadernosc"><mat-icon>add</mat-icon>Cadastro</a>
+            <a mat-list-item routerLinkActive="list-item-active" routerLink="/cadernosv"><mat-icon>search</mat-icon>Consulta</a>
+          </mat-expansion-panel>
+       
+
+        </mat-expansion-panel>
+
+        <mat-expansion-panel>
+
+          <mat-expansion-panel-header>
+            <mat-panel-title><mat-icon>assignment</mat-icon>
+              Relatórios
+            </mat-panel-title>
+            <mat-panel-description>
+              Relatórios de dados
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+
+          <a mat-list-item routerLinkActive="list-item-active" routerLink="/relatorios"><mat-icon>analytics</mat-icon>Dados em excel</a> 
+
+        </mat-expansion-panel>
+
+      </mat-accordion>
+      
+
+
+</mat-nav-list>
+

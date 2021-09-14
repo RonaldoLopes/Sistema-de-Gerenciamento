@@ -1,0 +1,118 @@
+<div class="container">
+    <div class="container-fluid">
+        <mat-label><h4>Dados do dia - Consulta</h4></mat-label>
+                    <mat-divider></mat-divider>
+
+                    <div fxLayout="row" fxFlexAlign="space-between center" fxLayoutGap="20px">
+                
+                        <div fxFlex="100">
+        
+                            <div class="table-container">
+        
+                                <mat-form-field>
+                                    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filtrar Dados">
+                                </mat-form-field>
+        
+                                <table mat-table [dataSource]="dataSource" matSort>
+        
+                                    <!-- Position Column -->
+                                    <ng-container matColumnDef="id">
+                                        <th mat-header-cell *matHeaderCellDef> Id </th>
+                                        <td mat-cell *matCellDef="let dd"> {{dd.id}} </td>
+                                    </ng-container>
+        
+                                    <!-- Name Column -->
+                                    <ng-container matColumnDef="data">
+                                        <th mat-header-cell *matHeaderCellDef> Data </th>
+                                        <td mat-cell *matCellDef="let dd"> {{dd.data | date: 'dd/MM/yyyy'}} </td>
+                                    </ng-container>
+        
+                                    <!-- Weight Column -->
+                                    <ng-container matColumnDef="saidaHotel">
+                                        <th mat-header-cell *matHeaderCellDef> Saída Hotel </th>
+                                        <td mat-cell *matCellDef="let dd"> {{dd.saidaHotel}} </td>
+                                    </ng-container>
+
+                                    <!-- Weight Column -->
+                                    <ng-container matColumnDef="entraFabrica">
+                                        <th mat-header-cell *matHeaderCellDef> Entrada Fabric. </th>
+                                        <td mat-cell *matCellDef="let dd"> {{dd.entraFabrica}} </td>
+                                    </ng-container>
+        
+                                    <!-- Symbol Column -->
+                                    <ng-container matColumnDef="saidaAlmo">
+                                        <th mat-header-cell *matHeaderCellDef> Saida Almo. </th>
+                                        <td mat-cell *matCellDef="let dd"> {{dd.saidaAlmo}} </td>
+                                    </ng-container>
+        
+                                    <ng-container matColumnDef="retorAlmo">
+                                        <th mat-header-cell *matHeaderCellDef> Retorno Almo. </th>
+                                        <td mat-cell *matCellDef="let dd"> {{dd.retorAlmo}} </td>
+                                    </ng-container>
+        
+                                    <ng-container matColumnDef="saidaLanche">
+                                        <th mat-header-cell *matHeaderCellDef> Saida lanche </th>
+                                        <td mat-cell *matCellDef="let dd"> {{dd.saidaLanche}} </td>
+                                    </ng-container>
+        
+                                    <ng-container matColumnDef="retorLanche">
+                                        <th mat-header-cell *matHeaderCellDef> Retorno Lanc. </th>
+                                        <td mat-cell *matCellDef="let dd"> {{dd.retorLanche}} </td>
+                                    </ng-container>
+        
+                                    <ng-container matColumnDef="saidaFabrica">
+                                        <th mat-header-cell *matHeaderCellDef> Saida Fabric. </th>
+                                        <td mat-cell *matCellDef="let dd"> {{dd.saidaFabrica}} </td>
+                                    </ng-container>
+
+                                    <ng-container matColumnDef="chegaHotel">
+                                        <th mat-header-cell *matHeaderCellDef> Chegada Hotel </th>
+                                        <td mat-cell *matCellDef="let dd"> {{dd.chegaHotel}} </td>
+                                    </ng-container>
+
+                                    <ng-container matColumnDef="atvDia">
+                                        <th mat-header-cell *matHeaderCellDef> Ativ. Dia </th>
+                                        <td mat-cell *matCellDef="let dd"> {{dd.atvDia}} </td>
+                                    </ng-container>
+
+                                    <ng-container matColumnDef="projetosId">
+                                        <th mat-header-cell *matHeaderCellDef> Projeto Id </th>
+                                        <td mat-cell *matCellDef="let dd"> {{dd.projetosId}} </td>
+                                    </ng-container>
+
+                                    <ng-container matColumnDef="projetoCodigo">
+                                        <th mat-header-cell *matHeaderCellDef> Projeto </th>
+                                        <td mat-cell *matCellDef="let dd"> {{dd.projetos.codProjeto}} </td>
+                                    </ng-container>   
+
+                                    <ng-container matColumnDef="idUser">
+                                        <th mat-header-cell *matHeaderCellDef> Id User </th>
+                                        <td mat-cell *matCellDef="let dd"> {{dd.user.id}} </td>
+                                    </ng-container>    
+                                    
+                                    <ng-container matColumnDef="userName">
+                                        <th mat-header-cell *matHeaderCellDef> Nome </th>
+                                        <td mat-cell *matCellDef="let dd"> {{dd.user.userName}} </td>
+                                    </ng-container>                                
+        
+                                    <ng-container matColumnDef="Opcoes">
+                                        <th mat-header-cell *matHeaderCellDef mat-sort-header>Opções</th>
+                                        <td mat-cell *matCellDef="let dd">
+                                            <button mat-button color="primary" (click)="setUserId(dd.user.id)" [routerLink]="['/dadosdiac', dd.id, 'edit']" tooltip="Editar"><mat-icon>edit</mat-icon></button>
+                                            <button mat-button color="warn"  (click)="deleteConfirm(dd)" tooltip="Excluir"><mat-icon>delete_sweep</mat-icon></button>
+                                        </td>
+                                    </ng-container>
+        
+                                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        
+                                </table>
+                                <mat-paginator [pageSizeOptions]="[5, 10, 20]"></mat-paginator>
+        
+                            </div>
+        
+                        </div>
+        
+                    </div>
+    </div>
+</div>

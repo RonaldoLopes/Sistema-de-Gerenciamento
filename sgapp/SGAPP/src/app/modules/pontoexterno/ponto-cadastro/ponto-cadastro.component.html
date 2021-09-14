@@ -1,0 +1,114 @@
+<div class="container">
+    <div class="container-fluid">
+
+        <form [formGroup]="registerForm">
+
+            <mat-label><h4>Dados do projeto</h4></mat-label>
+            <mat-divider></mat-divider>
+            <br>
+
+            <div fxLayout="row" fxFlexAlign="space-between center" fxLayoutGap="20px">
+                
+                <div fxFlex="20" class="form-group ">
+                    <mat-form-field class="perc">
+                        <mat-label>Projeto Id</mat-label>
+                        <input matInput placeholder="Selecione o projeto" readonly formControlName="projetosId" 
+                        [ngClass]="{'is-invalid': registerForm.get('projetosId').errors && registerForm.get('projetosId').touched}">
+                        <button mat-button matSuffix mat-icon-button aria-label="Clear" [disabled]="disableFields" 
+                            (click)="carregarProjeto()">
+                           <mat-icon>search</mat-icon>
+                        </button>
+                        <mat-error *ngIf="registerForm.get('projetosId').hasError('required')">
+                            Campo <strong>Obrigatório</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div fxFlex="50" class="form-group ">
+                    <mat-form-field class="perc">
+                        <mat-label>Projeto</mat-label>
+                        <input matInput placeholder="Projeto" formControlName="projeto" readonly>
+                      </mat-form-field>
+                </div>
+
+                <div fxFlex="50" class="form-group ">
+                    <mat-form-field color="accent" class="perc" >
+                        <mat-label>Data de inicio</mat-label>
+                        <input matInput readonly formControlName="dataInicio">
+                    </mat-form-field>
+                </div>
+
+            </div>
+            
+            <mat-label><h4>Dados</h4></mat-label>
+            <mat-divider></mat-divider>
+            <br>
+
+            <div fxLayout="row" fxFlexAlign="space-between center" fxLayoutGap="20px">   
+
+                <div fxFlex="30" class="form-group ">
+                    <mat-form-field color="accent" class="perc">
+                        <mat-label>Data</mat-label>
+                        <input matInput [matDatepicker]="picker1" formControlName="data"
+                         [disabled]="disableFields"
+                        [ngClass]="{'is-invalid': registerForm.get('data').errors && registerForm.get('data').touched}">
+                        <mat-datepicker-toggle matSuffix [for]="picker1"
+                        ></mat-datepicker-toggle>
+                        <mat-datepicker #picker1 color="primary"></mat-datepicker>
+                        <mat-error *ngIf="registerForm.get('data').hasError('required')">
+                            Campo <strong>Obrigatório</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>  
+                
+                <div fxFlex="30" class="form-group ">
+                    <mat-form-field class="perc">
+                        <mat-label>Entrada</mat-label>
+                        <input type="time" matInput  formControlName="entraFabrica">
+                    </mat-form-field>
+                </div>
+
+                <div fxFlex="30" class="form-group ">
+                    <mat-form-field class="perc">
+                        <mat-label>Saída Almoço</mat-label>
+                        <input type="time" matInput formControlName="saidaAlmo">
+                    </mat-form-field>
+                </div>
+
+                <div fxFlex="30" class="form-group ">
+                    <mat-form-field class="perc">
+                        <mat-label>Retorno Almoço</mat-label>
+                        <input type="time" matInput formControlName="retorAlmo">
+                    </mat-form-field>
+                </div>
+
+                <div fxFlex="30" class="form-group ">
+                    <mat-form-field class="perc">
+                        <mat-label>Saída</mat-label>
+                        <input type="time" matInput formControlName="saidaFabrica">
+                    </mat-form-field>
+                </div>
+
+            </div>
+
+            <div fxLayout="row" fxFlexAlign="space-between center" fxLayoutGap="20px">
+                
+                <mat-form-field class="perc">
+                    <mat-label>Justificativa</mat-label>
+                    <textarea matInput placeholder="Justificativa" formControlName="atvDia"></textarea>
+                </mat-form-field>
+
+            </div> 
+            
+            <br><br>
+            <div fxLayout="row" fxFlexAlign="space-between center" fxLayoutGap="20px">
+                <div fxFlex="50" class="form-group ">
+                    <button mat-button color="primary" (click)="findDataLancamento()"><mat-icon>save</mat-icon>Salvar</button>
+                    <button mat-button color="accent" (click)="cancelSave()"><mat-icon>undo</mat-icon>Cancelar</button>
+                </div>
+            </div>
+
+        </form>
+
+    </div>
+</div>

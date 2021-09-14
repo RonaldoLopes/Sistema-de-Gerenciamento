@@ -1,0 +1,92 @@
+<div class="container">
+    <div class="container-fluid">
+
+        <form [formGroup]="registerForm">
+
+            <mat-label><h4>Dados do projeto</h4></mat-label>
+            <mat-divider></mat-divider>
+            <br>
+
+            <div fxLayout="row" fxFlexAlign="space-between center" fxLayoutGap="20px">
+                
+                <div fxFlex="20" class="form-group ">
+                    <mat-form-field class="perc">
+                        <mat-label>Projeto Id</mat-label>
+                        <input matInput placeholder="Selecione o projeto" readonly formControlName="projetosId" 
+                        [ngClass]="{'is-invalid': registerForm.get('projetosId').errors && registerForm.get('projetosId').touched}">
+                        <button mat-button matSuffix mat-icon-button aria-label="Clear" [disabled]="disableFields" 
+                            (click)="carregarProjeto()">
+                           <mat-icon>search</mat-icon>
+                        </button>
+                        <mat-error *ngIf="registerForm.get('projetosId').hasError('required')">
+                            Campo <strong>Obrigatório</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div fxFlex="50" class="form-group ">
+                    <mat-form-field class="perc">
+                        <mat-label>Projeto</mat-label>
+                        <input matInput placeholder="Projeto" formControlName="projeto" readonly>
+                      </mat-form-field>
+                </div>
+
+                <div fxFlex="50" class="form-group ">
+                    <mat-form-field color="accent" class="perc" >
+                        <mat-label>Data de inicio</mat-label>
+                        <input matInput readonly formControlName="dataInicio">
+                    </mat-form-field>
+                </div>
+
+            </div>
+            
+            <mat-label><h4>Dados</h4></mat-label>
+            <mat-divider></mat-divider>
+            <br>
+
+            <div fxLayout="row" fxFlexAlign="space-between center" fxLayoutGap="20px">   
+
+                <div fxFlex="30" class="form-group ">
+                    <mat-form-field color="accent" class="perc">
+                        <mat-label>Data</mat-label>
+                        <input matInput [matDatepicker]="picker1" formControlName="data">
+                        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                        <mat-datepicker #picker1 color="primary"></mat-datepicker>
+                    </mat-form-field>
+                </div>  
+                
+                <div fxFlex="30" class="form-group ">
+                    <mat-form-field class="perc">
+                        <mat-label>Hora Dia</mat-label>
+                        <input type="time" matInput  formControlName="horasDia">
+                    </mat-form-field>
+                </div>
+
+                <div fxFlex="30" class="form-group ">
+                    <mat-form-field class="perc">
+                        <mat-label>Deslocamento</mat-label>
+                        <input type="time" matInput formControlName="deslocamento">
+                    </mat-form-field>
+                </div>
+
+                <div fxFlex="30" class="form-group ">
+                    <mat-form-field class="perc">
+                        <mat-label>Horas Trabalhadas</mat-label>
+                        <input type="time" matInput formControlName="horasTrab">
+                    </mat-form-field>
+                </div>
+
+            </div>
+            
+            <br>
+            <div fxLayout="row" fxFlexAlign="space-between center" fxLayoutGap="20px">
+                <div fxFlex="50" class="form-group ">
+                    <button mat-button color="primary" (click)="findDataLancamento()"><mat-icon>save</mat-icon>Salvar</button>
+                <button mat-button color="accent" (click)="resetForm()"><mat-icon>undo</mat-icon>Cancelar</button>
+                </div>
+            </div>
+
+        </form>
+
+    </div>
+</div>

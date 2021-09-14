@@ -1,0 +1,266 @@
+<div class="container">
+    <div class="container-fluid">
+        <form [formGroup]="registerForm">
+
+            <mat-label><h4>Dados</h4></mat-label>
+            <mat-divider></mat-divider>
+
+            <div fxLayout="row" fxFlexAlign="space-between center" fxLayoutGap="20px">
+                
+                <div fxFlex="40" class="form-group">
+                    <mat-form-field class="perc">
+                        <mat-label>Cliente</mat-label>
+                        <input matInput placeholder="Nome cliente" formControlName="clientes" 
+                        [ngClass]="{'is-invalid': registerForm.get('clientes').errors && registerForm.get('clientes').touched}">    
+
+                        <mat-error *ngIf="registerForm.get('clientes').hasError('minlength') && registerForm.get('clientes').touched" class="invalid-feedback">
+                            minímo de <strong>2</strong> caracteres
+                        </mat-error>
+                       
+                        <mat-error *ngIf="registerForm.get('clientes').hasError('maxlength') && registerForm.get('clientes').touched" class="invalid-feedback">
+                            Máximo de <strong>45</strong> caracteres
+                        </mat-error>
+                        <mat-error *ngIf="registerForm.get('clientes').hasError('required')">
+                            Campo <strong>Obrigatório</strong>
+                        </mat-error>
+
+                    </mat-form-field>
+                </div>
+
+                <div fxFlex="10" class="form-group ">
+                    <mat-form-field class="perc">
+                        <mat-label>CEP</mat-label>
+                        <input matInput placeholder="cep" formControlName="cep" (blur)="getCep()"
+                         [ngClass]="{'is-invalid': registerForm.get('cep').errors && registerForm.get('cep').touched}">
+
+                         <mat-error *ngIf="registerForm.get('cep').hasError('minlength') && registerForm.get('cep').touched" class="invalid-feedback">
+                            minímo de <strong>2</strong> caracteres
+                        </mat-error>
+                       
+                        <mat-error *ngIf="registerForm.get('cep').hasError('maxlength') && registerForm.get('cep').touched" class="invalid-feedback">
+                            Máximo de <strong>45</strong> caracteres
+                        </mat-error>
+                        <mat-error *ngIf="registerForm.get('cep').hasError('required')">
+                            Campo <strong>Obrigatório</strong>
+                        </mat-error>
+                        
+                      </mat-form-field>
+                </div>
+
+                <div fxFlex="50" class="form-group ">
+                    <mat-form-field class="perc">
+                        <mat-label>Endereco</mat-label>
+                        <input matInput placeholder="endereco" formControlName="endereco"
+                         [ngClass]="{'is-invalid': registerForm.get('endereco').errors && registerForm.get('endereco').touched}">
+
+                         <mat-error *ngIf="registerForm.get('endereco').hasError('minlength') && registerForm.get('endereco').touched" class="invalid-feedback">
+                            minímo de <strong>2</strong> caracteres
+                        </mat-error>
+                       
+                        <mat-error *ngIf="registerForm.get('endereco').hasError('maxlength') && registerForm.get('endereco').touched" class="invalid-feedback">
+                            Máximo de <strong>45</strong> caracteres
+                        </mat-error>
+                        <mat-error *ngIf="registerForm.get('endereco').hasError('required')">
+                            Campo <strong>Obrigatório</strong>
+                        </mat-error>
+                        
+                      </mat-form-field>
+                </div>
+
+            </div>
+
+            <div fxLayout="row" fxFlexAlign="space-between center" fxLayoutGap="20px">
+
+                <div fxFlex="40" class="form-group ">
+                    <mat-form-field class="perc">
+                        <mat-label>Cidade</mat-label>
+                        <input matInput placeholder="cidade" formControlName="cidade"
+                         [ngClass]="{'is-invalid': registerForm.get('cidade').errors && registerForm.get('cidade').touched}">
+                        
+                         <mat-error *ngIf="registerForm.get('cidade').hasError('minlength') && registerForm.get('cidade').touched" class="invalid-feedback">
+                            minímo de <strong>2</strong> caracteres
+                        </mat-error>
+                       
+                        <mat-error *ngIf="registerForm.get('cidade').hasError('maxlength') && registerForm.get('cidade').touched" class="invalid-feedback">
+                            Máximo de <strong>45</strong> caracteres
+                        </mat-error>
+                        <mat-error *ngIf="registerForm.get('cidade').hasError('required')">
+                            Campo <strong>Obrigatório</strong>
+                        </mat-error>
+                      </mat-form-field>
+                </div>
+
+                <div fxFlex="40" class="form-group ">
+                    <mat-form-field class="perc">
+                        <mat-label>Bairro</mat-label>
+                        <input matInput placeholder="bairro" formControlName="bairro"
+                         [ngClass]="{'is-invalid': registerForm.get('bairro').errors && registerForm.get('bairro').touched}">
+                        
+                         <mat-error *ngIf="registerForm.get('bairro').hasError('minlength') && registerForm.get('bairro').touched" class="invalid-feedback">
+                            minímo de <strong>2</strong> caracteres
+                        </mat-error>
+                       
+                        <mat-error *ngIf="registerForm.get('bairro').hasError('maxlength') && registerForm.get('bairro').touched" class="invalid-feedback">
+                            Máximo de <strong>45</strong> caracteres
+                        </mat-error>
+                        <mat-error *ngIf="registerForm.get('bairro').hasError('required')">
+                            Campo <strong>Obrigatório</strong>
+                        </mat-error>
+                      </mat-form-field>
+                </div>
+
+                <div fxFlex="10" class="form-group ">
+                    <mat-form-field class="perc">
+                        <mat-label>Estado</mat-label>
+                        <input matInput placeholder="estado" formControlName="estado"
+                         [ngClass]="{'is-invalid': registerForm.get('estado').errors && registerForm.get('estado').touched}">
+                        
+                         <mat-error *ngIf="registerForm.get('estado').hasError('maxLength') && registerForm.get('estado').touched" class="invalid-feedback">
+                            Máximo de <strong>2</strong> caracteres
+                        </mat-error>
+                        <mat-error *ngIf="registerForm.get('estado').hasError('required')">
+                            Campo <strong>Obrigatório</strong>
+                        </mat-error>
+                      </mat-form-field>
+                </div>
+
+                <div fxFlex="10" class="form-group ">
+                    <mat-form-field class="perc">
+                        <mat-label>Numero</mat-label>
+                        <input matInput placeholder="numero" formControlName="numero"
+                         [ngClass]="{'is-invalid': registerForm.get('numero').errors && registerForm.get('numero').touched}">
+                        
+                         <mat-error *ngIf="registerForm.get('numero').hasError('minlength') && registerForm.get('numero').touched" class="invalid-feedback">
+                            minímo de <strong>2</strong> caracteres
+                        </mat-error>
+                       
+                        <mat-error *ngIf="registerForm.get('numero').hasError('maxlength') && registerForm.get('numero').touched" class="invalid-feedback">
+                            Máximo de <strong>45</strong> caracteres
+                        </mat-error>
+                        <mat-error *ngIf="registerForm.get('numero').hasError('required')">
+                            Campo <strong>Obrigatório</strong>
+                        </mat-error>
+                      </mat-form-field>
+                </div>
+
+            </div>
+
+            <div fxLayout="row" fxFlexAlign="space-between center" fxLayoutGap="20px">
+                
+                <div fxFlex="50" class="form-group ">
+                    <mat-form-field class="perc">
+                        <mat-label>Area</mat-label>
+                        <input matInput placeholder="Area" formControlName="area"
+                         [ngClass]="{'is-invalid': registerForm.get('area').errors && registerForm.get('area').touched}">
+                        
+                         <mat-error *ngIf="registerForm.get('area').hasError('minlength') && registerForm.get('area').touched" class="invalid-feedback">
+                            minímo de <strong>2</strong> caracteres
+                        </mat-error>
+                       
+                        <mat-error *ngIf="registerForm.get('area').hasError('maxlength') && registerForm.get('area').touched" class="invalid-feedback">
+                            Máximo de <strong>45</strong> caracteres
+                        </mat-error>
+                        <mat-error *ngIf="registerForm.get('area').hasError('required')">
+                            Campo <strong>Obrigatório</strong>
+                        </mat-error>
+                      </mat-form-field>
+                </div>
+
+
+            </div>
+            <div fxLayout="row" fxFlexAlign="space-between center" fxLayoutGap="2px">
+                <button mat-button color="primary" (click)="salvarAlteracao()"><mat-icon>save</mat-icon>Salvar</button>
+                <button mat-button color="accent" (click)="resetForm()" ><mat-icon>undo</mat-icon>Cancelar</button>
+            </div>
+            
+            <br>
+            <mat-divider></mat-divider>
+            <mat-label><h4>Visualização/Consulta</h4></mat-label>
+
+            <div fxLayout="row" fxFlexAlign="space-between center" fxLayoutGap="20px">
+                
+                <div fxFlex="100">
+
+                    <div class="mat-elevation-z8">
+
+                        <mat-form-field>
+                            <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filtrar Dados">
+                        </mat-form-field>
+
+                        <table mat-table [dataSource]="dataSource" matSort>
+
+                            <!-- Position Column -->
+                            <ng-container matColumnDef="id">
+                                <th mat-header-cell *matHeaderCellDef> Id </th>
+                                <td mat-cell *matCellDef="let clientes"> {{clientes.id}} </td>
+                            </ng-container>
+
+                            <!-- Name Column -->
+                            <ng-container matColumnDef="clientes">
+                                <th mat-header-cell *matHeaderCellDef> Clientes </th>
+                                <td mat-cell *matCellDef="let clientes"> {{clientes.clientes}} </td>
+                            </ng-container>
+
+                            <!-- Weight Column -->
+                            <ng-container matColumnDef="cep">
+                                <th mat-header-cell *matHeaderCellDef> cep </th>
+                                <td mat-cell *matCellDef="let clientes"> {{clientes.cep}} </td>
+                            </ng-container>
+
+                            <!-- Symbol Column -->
+                            <ng-container matColumnDef="endereco">
+                                <th mat-header-cell *matHeaderCellDef> Endereço </th>
+                                <td mat-cell *matCellDef="let clientes"> {{clientes.endereco}} </td>
+                            </ng-container>
+
+                            <ng-container matColumnDef="cidade">
+                                <th mat-header-cell *matHeaderCellDef> Cidade </th>
+                                <td mat-cell *matCellDef="let clientes"> {{clientes.cidade}} </td>
+                            </ng-container>
+
+                            <ng-container matColumnDef="bairro">
+                                <th mat-header-cell *matHeaderCellDef> Bairro </th>
+                                <td mat-cell *matCellDef="let clientes"> {{clientes.bairro}} </td>
+                            </ng-container>
+
+                            <ng-container matColumnDef="uf">
+                                <th mat-header-cell *matHeaderCellDef> uf </th>
+                                <td mat-cell *matCellDef="let clientes"> {{clientes.uf}} </td>
+                            </ng-container>
+
+                            <ng-container matColumnDef="numero">
+                                <th mat-header-cell *matHeaderCellDef> numero </th>
+                                <td mat-cell *matCellDef="let clientes"> {{clientes.numero}} </td>
+                            </ng-container>
+
+                            <ng-container matColumnDef="area">
+                                <th mat-header-cell *matHeaderCellDef> area </th>
+                                <td mat-cell *matCellDef="let clientes"> {{clientes.area}} </td>
+                            </ng-container>
+
+                            
+
+                            <ng-container matColumnDef="Opcoes">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header>Opções</th>
+                                <td mat-cell *matCellDef="let cliente">
+                                  <button mat-button color="primary" (click)="editarCliente(cliente)" tooltip="Alterar"><mat-icon>create</mat-icon></button>&nbsp;
+                                  <button mat-button color="warn" (click)="deleteConfirm(cliente)" tooltip="Excluir"><mat-icon>delete_sweep</mat-icon></button>
+                                </td>
+                            </ng-container>
+
+                            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+                        </table>
+                        <mat-paginator [pageSizeOptions]="[5, 10, 20]"></mat-paginator>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </form>
+
+    </div>
+</div>

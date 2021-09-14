@@ -1,0 +1,219 @@
+<!--<p>Form Value: {{registerForm.value | json}}</p>
+    <p>Form Status: {{registerForm.status | json}}</p>-->
+<div class="container">
+    <div class="container-fluid">
+
+        <form [formGroup]="registerForm">
+
+            <mat-label><h4>Dados do projeto</h4></mat-label>
+            <mat-divider></mat-divider>
+            <br>
+
+            <div fxLayout="row" fxFlexAlign="space-between center" fxLayoutGap="20px">
+              
+                <div fxFlex="20" class="form-group ">
+                    <mat-form-field class="perc">
+                        <mat-label>Cliente Id</mat-label>
+                        <input matInput placeholder="Selecione o cliente" readonly formControlName="clienteId"
+                        [ngClass]="{'is-invalid': registerForm.get('area').errors && registerForm.get('area').touched}">
+                        <button mat-button matSuffix mat-icon-button aria-label="Clear" (click)="carregaClienteDados()">
+                           <mat-icon>search</mat-icon>
+                        </button>
+                        <mat-error *ngIf="registerForm.get('clienteId').hasError('required')">
+                            Campo <strong>Obrigatório</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div fxFlex="30" class="form-group ">
+                    <mat-form-field class="perc">
+                        <mat-label>Cliente</mat-label>
+                        <input matInput placeholder="Selecione o cliente" readonly formControlName="clienteDesc">
+                      </mat-form-field>
+                </div>
+
+                <div fxFlex="30" class="form-group ">
+                    <mat-form-field class="perc">
+                        <mat-label>Endereço</mat-label>
+                        <input matInput placeholder="Endereço" readonly
+                            formControlName="endereco">
+                      </mat-form-field>
+                </div>
+
+                <div fxFlex="10" class="form-group ">
+                    <mat-form-field class="perc">
+                        <mat-label>Area</mat-label>
+                        <input matInput placeholder="Area" readonly
+                            formControlName="area">
+                      </mat-form-field>
+                </div>                
+
+            </div>
+
+            <div fxLayout="row" fxFlexAlign="space-between center" fxLayoutGap="20px">
+
+                <div fxFlex="10" class="form-group ">
+                    <mat-form-field class="perc">
+                        <mat-label>Cod. Projeto</mat-label>
+                        <input matInput matInput placeholder="Cod. Projeto" formControlName="codProjeto">
+                        <mat-error *ngIf="registerForm.get('codProjeto').hasError('required')">
+                            Campo <strong>Obrigatório</strong>
+                        </mat-error>
+                        <mat-error *ngIf="registerForm.get('codProjeto').hasError('maxlength') && registerForm.get('codProjeto').touched" class="invalid-feedback">
+                            Máximo de <strong>5</strong> caracteres
+                        </mat-error>
+                      </mat-form-field>
+                </div>
+
+                <div fxFlex="80" class="form-group ">
+                    <mat-form-field class="perc">
+                        <mat-label>Descrição</mat-label>
+                        <input matInput matInput placeholder="Descrição" formControlName="descricao">
+                        <mat-error *ngIf="registerForm.get('descricao').hasError('required')">
+                            Campo <strong>Obrigatório</strong>
+                        </mat-error>
+                        <mat-error *ngIf="registerForm.get('descricao').hasError('maxlength') && registerForm.get('descricao').touched" class="invalid-feedback">
+                            Máximo de <strong>45</strong> caracteres
+                        </mat-error>
+                      </mat-form-field>
+                </div>
+
+            </div>
+
+            <div fxLayout="row" fxFlexAlign="space-between center" fxLayoutGap="20px">
+                
+                <div fxFlex="10" class="form-group ">
+                    <mat-form-field class="perc">
+                        <mat-label>Recursos Prev.</mat-label>
+                        <input type="number" matInput placeholder="Recursos Prev." formControlName="recursosPrev"
+                         [ngClass]="{'is-invalid': registerForm.get('recursosPrev').errors && registerForm.get('recursosPrev').touched}">
+                         <mat-error *ngIf="registerForm.get('recursosPrev').hasError('required')">
+                            Campo <strong>Obrigatório</strong>
+                         </mat-error>
+                      </mat-form-field>
+                </div>
+
+                <div fxFlex="10" class="form-group ">
+                    <mat-form-field class="perc">
+                        <mat-label>Recursos Util.</mat-label>
+                        <input type="number" matInput placeholder="Recursos Util." formControlName="recursosUtil"
+                         [ngClass]="{'is-invalid': registerForm.get('recursosUtil').errors && registerForm.get('recursosUtil').touched}">
+                         <mat-error *ngIf="registerForm.get('clienteId').hasError('required')">
+                            Campo <strong>Obrigatório</strong>
+                        </mat-error>
+                      </mat-form-field>
+                </div>
+
+                <div fxFlex="10" class="form-group ">
+                    <mat-form-field class="perc">
+                        <mat-label>Mobiliza. Prev.</mat-label>
+                        <input type="number" matInput placeholder="Mobiliza. Prev" formControlName="mobilizaPrev"
+                         [ngClass]="{'is-invalid': registerForm.get('mobilizaPrev').errors && registerForm.get('mobilizaPrev').touched}">
+                         <mat-error *ngIf="registerForm.get('clienteId').hasError('required')">
+                            Campo <strong>Obrigatório</strong>
+                        </mat-error>
+                      </mat-form-field>
+                </div>
+
+                <div fxFlex="10" class="form-group ">
+                    <mat-form-field class="perc">
+                        <mat-label>Mobiliza Util.</mat-label>
+                        <input type="number" matInput placeholder="Mobiliza Util." formControlName="mobilizaUtili"
+                         [ngClass]="{'is-invalid': registerForm.get('mobilizaUtili').errors && registerForm.get('mobilizaUtili').touched}">
+                         <mat-error *ngIf="registerForm.get('clienteId').hasError('required')">
+                            Campo <strong>Obrigatório</strong>
+                        </mat-error>
+                      </mat-form-field>
+                </div>
+
+            </div>
+
+            <div fxLayout="row" fxFlexAlign="space-between center" fxLayoutGap="20px">
+
+                <div fxFlex="30" class="form-group ">
+                    <mat-form-field color="accent" class="perc">
+                        <mat-label>Data de inicio</mat-label>
+                        <input matInput [matDatepicker]="picker2" formControlName="dataInicio"
+                         [ngClass]="{'is-invalid': registerForm.get('dataInicio').errors && registerForm.get('dataInicio').touched}">
+                         <mat-error *ngIf="registerForm.get('dataInicio').hasError('required')">
+                            Campo <strong>Obrigatório</strong>
+                        </mat-error>
+                        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                        <mat-datepicker #picker2 color="primary"></mat-datepicker>
+                    </mat-form-field>
+                </div>
+
+                <div fxFlex="20" class="form-group ">
+                    <mat-form-field class="perc">
+                        <mat-label>Horas Previ. Desenv</mat-label>
+                        <input type="number" matInput  formControlName="horasPrevDesen"
+                         [ngClass]="{'is-invalid': registerForm.get('horasPrevDesen').errors && registerForm.get('horasPrevDesen').touched}">
+                         <mat-error *ngIf="registerForm.get('clienteId').hasError('required')">
+                            Campo <strong>Obrigatório</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div fxFlex="20" class="form-group ">
+                    <mat-form-field class="perc">
+                        <mat-label>Horas Util. Desenv</mat-label>
+                        <input type="number" matInput  formControlName="horasUtilDesenv"
+                         [ngClass]="{'is-invalid': registerForm.get('horasUtilDesenv').errors && registerForm.get('horasUtilDesenv').touched}">
+                         <mat-error *ngIf="registerForm.get('clienteId').hasError('required')">
+                            Campo <strong>Obrigatório</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+            </div>
+
+            <div fxLayout="row" fxFlexAlign="space-between center" fxLayoutGap="20px">
+
+                <div fxFlex="20" class="form-group ">
+                    <mat-form-field class="perc">
+                        <mat-label>Horas Previ. Implement.</mat-label>
+                        <input type="number" matInput  formControlName="horasPrevImplement"
+                         [ngClass]="{'is-invalid': registerForm.get('horasPrevImplement').errors && registerForm.get('horasPrevImplement').touched}">
+                         <mat-error *ngIf="registerForm.get('clienteId').hasError('required')">
+                            Campo <strong>Obrigatório</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div fxFlex="20" class="form-group ">
+                    <mat-form-field class="perc">
+                        <mat-label>Horas Util. Implement.</mat-label>
+                        <input type="number" matInput  formControlName="horasUtilImplement"
+                         [ngClass]="{'is-invalid': registerForm.get('horasUtilImplement').errors && registerForm.get('horasUtilImplement').touched}">
+                         <mat-error *ngIf="registerForm.get('clienteId').hasError('required')">
+                            Campo <strong>Obrigatório</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+            </div>
+            <div fxLayout="row" fxFlexAlign="space-between center" fxLayoutGap="20px">
+                <div fxFlex="30" class="form-group ">
+                    <mat-form-field color="accent" class="perc">
+                        <mat-label>Data de conclusão</mat-label>
+                        <input matInput [matDatepicker]="picker3" formControlName="dataConclusao">                         
+                        <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+                        <mat-datepicker #picker3 color="primary"></mat-datepicker>
+                    </mat-form-field>
+                </div>
+                <div fxFlex="30" class="form-group ">
+                    <br>
+                    <mat-checkbox formControlName="concluido">Concluído?</mat-checkbox>
+                </div>
+            </div>
+            <br>
+
+            <div fxLayout="row" fxFlexAlign="space-between center" fxLayoutGap="2px">
+                <button mat-button color="primary" (click)="salvarAlteracao()"><mat-icon>save</mat-icon>Salvar</button>
+                <button mat-button color="accent" (click)="resetForm()"><mat-icon>undo</mat-icon>Cancelar</button>
+            </div> 
+
+        </form>
+        
+    </div>
+</div>

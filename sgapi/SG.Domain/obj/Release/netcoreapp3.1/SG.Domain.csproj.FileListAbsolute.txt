@@ -1,0 +1,9 @@
+D:\fontes\SG\sgapi\sgapi\SG.Domain\bin\Release\netcoreapp3.1\SG.Domain.deps.json
+D:\fontes\SG\sgapi\sgapi\SG.Domain\bin\Release\netcoreapp3.1\SG.Domain.dll
+D:\fontes\SG\sgapi\sgapi\SG.Domain\bin\Release\netcoreapp3.1\SG.Domain.pdb
+D:\fontes\SG\sgapi\sgapi\SG.Domain\obj\Release\netcoreapp3.1\SG.Domain.csprojAssemblyReference.cache
+D:\fontes\SG\sgapi\sgapi\SG.Domain\obj\Release\netcoreapp3.1\SG.Domain.AssemblyInfoInputs.cache
+D:\fontes\SG\sgapi\sgapi\SG.Domain\obj\Release\netcoreapp3.1\SG.Domain.AssemblyInfo.cs
+D:\fontes\SG\sgapi\sgapi\SG.Domain\obj\Release\netcoreapp3.1\SG.Domain.csproj.CoreCompileInputs.cache
+D:\fontes\SG\sgapi\sgapi\SG.Domain\obj\Release\netcoreapp3.1\SG.Domain.dll
+D:\fontes\SG\sgapi\sgapi\SG.Domain\obj\Release\netcoreapp3.1\SG.Domain.pdb

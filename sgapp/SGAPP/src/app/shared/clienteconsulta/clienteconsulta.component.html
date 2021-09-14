@@ -1,0 +1,65 @@
+<div class="container">
+    <div class="container-fluid">
+
+        <form [formGroup]="registerForm">
+
+            <h4>Escolha o dado abaixo</h4>
+            <mat-divider></mat-divider>
+
+            <div fxLayout="row" fxFlexAlign="space-between center" fxLayoutGap="20px">
+                <div fxFlex="100">
+
+                    <div class="mat-elevation-z8">
+
+                        <mat-form-field>
+                            <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filtrar Dados">
+                        </mat-form-field>
+
+                        <table mat-table [dataSource]="dataSource" matSort>
+
+                            <!-- Position Column -->
+                            <ng-container matColumnDef="id">
+                                <th mat-header-cell *matHeaderCellDef> ID </th>
+                                <td mat-cell *matCellDef="let cliente"> {{cliente.id}} </td>
+                            </ng-container>
+
+                            <!-- Name Column -->
+                            <ng-container matColumnDef="clientes">
+                                <th mat-header-cell *matHeaderCellDef> Cliente </th>
+                                <td mat-cell *matCellDef="let cliente"> {{cliente.clientes}} </td>
+                            </ng-container>
+
+                            <!-- Weight Column -->
+                            <ng-container matColumnDef="endereco">
+                                <th mat-header-cell *matHeaderCellDef> Endereço </th>
+                                <td mat-cell *matCellDef="let cliente"> {{cliente.endereco}} </td>
+                            </ng-container>
+
+                            <!-- Symbol Column -->
+                            <ng-container matColumnDef="area">
+                                <th mat-header-cell *matHeaderCellDef> Area </th>
+                                <td mat-cell *matCellDef="let cliente"> {{cliente.area}} </td>
+                            </ng-container>
+
+                            <ng-container matColumnDef="Opcoes">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header>Opções</th>
+                                <td mat-cell *matCellDef="let cliente">
+                                  <button mat-button color="primary"  tooltip="Alterar" (click)="closeTeste(cliente)"><mat-icon>assignment_return</mat-icon></button>&nbsp;
+                                </td>
+                            </ng-container>
+
+                            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+                        </table>
+                        <mat-paginator [pageSizeOptions]="[5, 10, 20]"></mat-paginator>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </form>
+
+    </div>
+</div>

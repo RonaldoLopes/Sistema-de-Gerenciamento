@@ -1,0 +1,151 @@
+﻿dotnet -h para help
+dotnet watch run 
+dotnet run ->rodar a aplicacao
+ctrl + D = Selecionar tudo igual
+shit+ctrl+alt = seleção em bloco
+ctrl+shit+p = tolowercase entre outros
+
+comandos dashboard com Material
+1. instalar angular Material
+    1.1 ng add @angular/material
+2. instalar hicharts angular
+    2.1 npm i highcharts-angular --save
+    2.2 npm i highcharts --save
+3. instalar flex layout
+    3.1 npm i @angular/flex-layout @angular/cdk --save
+4. criar layout
+    4.1 ng g c layouts/default
+    4.2 ng g m layouts/default
+    4.3 ng g c layouts/dashboard
+5. criar shared compoment
+    5.1 ng g c shared/components/header
+    5.2 ng g c shared/components/footer
+    5.3 ng g c shared/components/sidebar
+6. criar module
+    6.1 ng g m shared
+7. criar widgets
+    7.1 ng g c shared/widgets/area
+    7.2 ng g c shared/widgets/card
+8. criar dashboard service
+    8.1 ng g s modules/dashboard
+
+Criar global.json
+dotnet --list-sdks
+dotnet new globaljson --sdk-version 2.2.100
+dotnet tool install --global dotnet-ef --version 3.0.0
+EMET pesquisar
+extensões:
+    1.@installed -> instalado
+    2.C#;
+    3. C# Extensions;
+    4. Brackt Pair Colorizer;
+    5. Material Icon Theme;
+    6. Path Intellisense;
+    7. Nuget Package Manager;
+    8. Angular Files;
+    9. Angular Language Service;
+    10.angular2-switcher;
+    11.Auto Rename Tag;
+    12.Debugger for Chrome;
+    13.Live Server;
+    14.npm;
+    15.Prettier - Code formatter;
+    16.TsLint
+//criar data context->colocar no startup
+Criar projeto console
+    1. dotnet new console -n GameTop
+    2. dotnet run
+Criar projeto web --dotnet new sln
+    1. dotnet new web -n nome_projeto.Web
+    2. dotnet new mvc -n nome_projeto.MVC //mvccls
+    2. dotnet new webapi -n nome_projeto.API //WebAPI
+    4. dotnet sln add <NomeDoProjeto>.csproj
+Nuget   
+    1. ctrl+shit+p;
+    2. Escolher nuget;
+    3. executar dotnet build;
+EntityFramework
+    1. dotnet ef; 
+    2. dotnet ef migrations -h; //ver comandos
+    3. dotnet ef migrations add init;
+    4. dotnet ef database update
+Angular
+    1. npm install -g @angular/cli
+    2. cli.angular.io
+    3. ng new ProAgil-App
+    4. ng serve -o
+    5. generate component
+    6. npm install
+    7. ng update
+    8. npm update
+    9. importar httpclintModule no app.module
+Component  toda vez que cria um componente tem que referenciar dentro do app.module
+    1. Dentro de App->generate component
+bootstrap
+    1. npm i --save bootstrap @fortawesome/fontawesome-free
+    2. referenciar no angular.json para isso importar no styles.css
+Criar novas camadas
+    1.dotnet new classlib -n nome.Domain
+    2.dotnet new classlib -n nome.Repository
+    3.dotnet new sln -n nome_solucao  
+    4.deletar class criado as bibliotecas  
+    4.1. rm -R local do arquivo
+    5.dotnet add ProAgil.Repository/ProAgil.Repository.csproj reference ProAgil.Domain/ProAgil.Domain.csproj  //refenciar projeto
+    5.1.dotnet add ProAgil.API/ProAgil.API.csproj reference ProAgil.Domain/ProAgil.Domain.csproj  //refenciar projeto
+    5.2.dotnet add ProAgil.API/ProAgil.API.csproj reference ProAgil.Repository/ProAgil.Repository.csproj  //refenciar projeto
+    5.3.dotnet sln ProAgil.sln add ProAgil.API/ProAgil.API.csproj ProAgil.Repository/ProAgil.Repository.csproj ProAgil.Domain/ProAgil.Domain.csproj  //adicionar na solução
+    5.4. dotnet build na raiz
+Two Way DataBinds
+    1. dentro do input no html[()]->caixa de bananas
+    2. importar FormsModule no app.module
+Pipes
+Entidades
+   1. ctrl+shift+p -> nuget
+    1.1 Microsoft.EntityFrameworkCore.Sqlite 
+   2.dotnet ef no Repository
+   3.dotnet ef --startup-project ../Caminho_API migrations add init //necessário para referenciar um projeto
+   4.dotnet ef --startup-project ../Caminho_API database update //dentro de Repository
+Criar interfaces
+    1.
+Criar helper dentro do angular
+    1.Botão direito generate pipe
+    2.criar diretorio util
+    3.generate class
+    4. importar os pipes no app-module
+Componente para angular
+    1.ngx-bootstrap
+    2. instalar no angular
+    3. importar no app-module
+    4. criar novo compoment, em app botão direito generate compoment
+Reactive forms
+Não esquecer de colocar dentro do styles.css os arquivos como date picker
+Criando DTOS
+    1.automapper
+    2.criar diretorio dentro da API DTO(Data Transfer Object)
+    3.associar dominio ao dotne
+        3.1 nuget Package Manager automapper.extensions.microsoft.dependencyinjection
+        3.2 dentro da api
+    4.criar diretorio Helpers
+      4.1 classe AutoMapperProfiles
+Angular
+    1.NGX  Toastr
+        1.1 adicionar dentro do app.module do APP
+    2. rotas em app-routing-module
+    3._shared
+Upload Imagens Files    dentro do component (evento.component por exemplo)
+    1.Criar diretorio Resources em api
+        1.1 criar diretorio images
+    2. editar statup.cs com usestaticfilees
+    3.No angular
+        3.1 HTML e typscript referente a pagina
+        3.2 editar service
+Oauth
+    1.Nuget->Microsoft.AspNetCore.Identity.EntityFrameworkCore pegar ultima estavel e instalar no dominio
+    2.Adicionar as tags 
+    3.Na api em Repository na classe context extender de IdentityDbContext
+    4.criar diretorio no dominio Identity
+    5.dentro de Identity, criar as classes de propriedades
+    6.configurar na startup
+	
+	deploy angular
+	ng build --watch

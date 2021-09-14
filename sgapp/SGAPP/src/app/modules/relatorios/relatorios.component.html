@@ -1,0 +1,113 @@
+<h3>Relatórios</h3>
+<mat-divider></mat-divider>
+<br>
+    <form [formGroup]="registerForm">
+        <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="20px" class="stats-cards">
+
+            <mat-card fxFlex="50">
+                <mat-card-title>Dados diário</mat-card-title>
+                <mat-card-subtitle>Entre com os dados abaixo</mat-card-subtitle>
+
+                <mat-card-content>
+                    <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="20px" class="stats-cards">
+                        <div fxFlex="50">
+                            <mat-form-field color="accent" class="perc">
+                                <mat-label>Data de inicio</mat-label>
+                                <input matInput [matDatepicker]="picker2" formControlName="dataIniDD">                             
+                                <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                                <mat-datepicker #picker2 color="primary"></mat-datepicker>
+                            </mat-form-field>
+                        </div>
+
+                        <div fxFlex="50">
+                            <mat-form-field color="accent" class="perc">
+                                <mat-label>Data Final</mat-label>
+                                <input matInput [matDatepicker]="picker1" formControlName="dataFimDD">                             
+                                <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                                <mat-datepicker #picker1 color="primary"></mat-datepicker>
+                            </mat-form-field>
+                        </div>
+                    </div>
+
+                    <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="20px" class="stats-cards">
+
+                        <div fxFlex="50" >
+                            <mat-form-field class="perc">
+                                <mat-label>Projeto</mat-label>
+                                <mat-select formControlName="projetoDD">
+                                    <mat-option *ngFor="let p of projetos" value="{{p.id}}">{{p.codProjeto}}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+
+                    </div>
+                </mat-card-content>
+                <mat-card-actions>
+                    <button mat-button (click)="generateDD()">Gerar</button>
+                </mat-card-actions>
+
+            </mat-card>
+
+            <mat-card fxFlex="50">
+                <mat-card-title>Caderno de horas</mat-card-title>
+                <mat-card-subtitle>Entre com os dados abaixo</mat-card-subtitle>
+                <mat-card-content>
+                    <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="20px" class="stats-cards">
+
+                        <div fxFlex="50" >
+                            <mat-form-field class="perc">
+                                <mat-label>Projeto</mat-label>
+                                <mat-select formControlName="projetoCH">
+                                    <mat-option *ngFor="let p of projetos" value="{{p.id}}">{{p.codProjeto}}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+
+                    </div>
+                </mat-card-content>
+                <br><br><br>
+                <mat-card-actions>
+                    <button mat-button (click)="generateCH()">Gerar</button>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+        <br>
+        <mat-divider></mat-divider>
+        <br>
+        <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="20px" class="stats-cards">
+
+            <mat-card fxFlex="50">
+                <mat-card-title>Ponto Externo</mat-card-title>
+                <mat-card-subtitle>Entre com os dados abaixo</mat-card-subtitle>
+                <mat-card-content>
+                    <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="20px" class="stats-cards">
+                        <div fxFlex="50">
+                            <mat-form-field color="accent" class="perc">
+                                <mat-label>Data de inicio</mat-label>
+                                <input matInput [matDatepicker]="picker4" formControlName="dataIniPE">                             
+                                <mat-datepicker-toggle matSuffix [for]="picker4"></mat-datepicker-toggle>
+                                <mat-datepicker #picker4 color="primary"></mat-datepicker>
+                            </mat-form-field>
+                        </div>
+
+                        <div fxFlex="50">
+                            <mat-form-field color="accent" class="perc">
+                                <mat-label>Data Final</mat-label>
+                                <input matInput [matDatepicker]="picker5" formControlName="dataFimPE">                             
+                                <mat-datepicker-toggle matSuffix [for]="picker5"></mat-datepicker-toggle>
+                                <mat-datepicker #picker5 color="primary"></mat-datepicker>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </mat-card-content>
+                <mat-card-actions>
+                    <button mat-button (click)="generatePE()">Gerar</button>
+                </mat-card-actions>
+            </mat-card>
+
+            <mat-card fxFlex="50">
+                <mat-card-title>Projetos</mat-card-title>
+                <mat-card-subtitle>Entre com os dados abaixo</mat-card-subtitle>
+            </mat-card>
+        </div>
+    </form>
